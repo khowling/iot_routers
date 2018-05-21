@@ -3,3 +3,14 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.c-list.f-bare {
+  padding-left: 0;
+  list-style-type: none;
+}
+ul.c-list {
+  list-style-type: disc;
+}
+.f-lean {
+  padding-top: 0;
+}

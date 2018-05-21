@@ -9,6 +9,13 @@ import {
 */
 import {Alert} from './common.js'
 
+// Imports components from Fluent Web https://fluentweb.com/building-blocks 
+import { Header, ContentPlacement, TypographicIntro, Footer, Hyperlink, Select, TextField, Label, Checkbox, CallToAction, Divider } from '@ms-fw/fw-react/components';
+
+// Imports layout features from Fluent Web https://fluentweb.com/prototyping/getting-started/grid-layout 
+import { Page, Grid, Column } from '@ms-fw/fw-react/layouts';
+
+
 
 const AttitionalInfo = ({user}) => 
             <div className="m-additional-information " style={{"boarderLeft": "0px solid rgba(0,0,0,.2)"}}>
@@ -97,7 +104,7 @@ class Cases extends Component {
 
 }
 
-export default class Bot extends Component {
+export default class New extends Component {
     state = { count: 0, point_addresses: {}};
 
     componentWillReceiveProps(nextProps) {
@@ -190,55 +197,103 @@ export default class Bot extends Component {
 
     render () {
         return (
-            <div className="m-panes m-panes-section-ext" data-grid="col-12">
-            <section>
-                <h2 data-grid="col-12" className="c-heading-3 x-offset-content x-hidden-focus" style={{"paddingLeft":"0", "width": "90%", "borderBottom": "1px solid rgba(0, 0, 0, 0.2)"}}>Device Simulation</h2>
-                <div className="m-additional-information " style={{"boarderLeft": "0px solid rgba(0,0,0,.2)"}}>
-                    <div data-grid="col-12 stack-2">
-                        <div data-grid="col-6">
-                            <ul className="c-list f-bare f-lean">
-                                <li>
-                                    <strong>Connection</strong>
-                                </li>
-                                <li>
-                                    <div>{this.props.connection.status}</div>
-                                </li>
-                                <li>
-                                    <strong>Current Virtual Routers</strong>
-                                </li>
-                                <li>
-                                    <div>{this.state.count}</div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div data-grid="col-6">
-                            <ul className="c-list f-bare f-lean">
-                                <li>
-                                    <strong>Request Virtial Routers</strong>
-                                </li>
-                                <li>
-                                    <input id="defaultFlex" type="range" min="0" max="1000" step="10" disabled={this.props.connection.status !== "connected"} onChange={this.sliderChange.bind(this)} ref={(input) => { this.sliderVal = input; }}/>
-                                    <input type="text" defaultValue="0" className="c-text-field f-small" readOnly="readonly" ref={(input) => { this.sliderOutVal = input; }}/>
-                                    <button name="button" className="c-button f-primary" disabled={this.props.connection.status !== "connected"} onClick={this.updateServer.bind(this)}>Request</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <h2 data-grid="col-12" className="c-heading-3 x-offset-content x-hidden-focus" style={{"paddingLeft":"0", "width": "95%", "marginBottom": "15px", "borderBottom": "1px solid rgba(0, 0, 0, 0.2)"}}>Select Virtual Router Connection</h2>
-                <AttitionalInfo user={{install: "ok"}}/>
-                <h2 data-grid="col-12" className="c-heading-3 x-offset-content x-hidden-focus" style={{"paddingLeft":"0", "width": "95%", "marginBottom": "15px", "borderBottom": "1px solid rgba(0, 0, 0, 0.2)"}}>Plotted</h2>
-                <Cases point_addresses={this.state.point_addresses}/>
-                <h2 data-grid="col-12" className="c-heading-3 x-offset-content x-hidden-focus" style={{"paddingLeft":"0", "width": "90%", "borderBottom": "1px solid rgba(0, 0, 0, 0.2)"}}>Invoices:</h2>
+        
+            <Grid 
+                columnCount={ 12 } 
+                gutter={ 2 }
+            >
+                <Column span={[12]}>
+                <TypographicIntro
+                    backgroundColor={"accent"}
+                    heading={{
+                        "tag": "h1",
+                        "text": "Save on Surface"
+                      }}
+                    subheading={{
+                        "tag": "p",
+                        "text": "Get up to $200 off select Surface Pro and Surface Laptop with Intel Core i5 processors"
+                      }}
+                />
+                </Column>
 
-            </section>
-            <section>
-                <Alert type="error" head_txt="Router Disconnecting" body_txt="We've detected a potential issue"/>
-                <div style={{"position": "relative", "height": "550px", "textAlign": "left"}}>
-                    <div style={{"height": "700px"}} ref={(div) => { this.mapdiv = div; }}></div>
-                </div>
-            </section>
-            </div>
+                <Column span={[6]}>
+                <Label  text="Order Ref"/>
+                <TextField  name="Text field with placeholder" type="text"  placeholder="012345"/>
+
+                    <Select id="select01" flex={true} label={{"id": "selectLabel01","text": "Choose Town"}}
+                        options={[
+                            {
+                              "value": "Stoke-on-Trent, Staffordshire",
+                              "text": "Stoke-on-Trent, Staffordshire"
+                            },
+                            {
+                              "value": "Solihull, Birmingham",
+                              "text": "Solihull, Birmingham"
+                            },
+                            {
+                              "value": "Eastbourne, East Sussex",
+                              "text": "Eastbourne, East Sussex"
+                            },
+                            {
+                                "value": "Cardiff",
+                                "text": "Cardiff"
+                            },
+                            {
+                                "value": "Oxford, Oxfordshire",
+                                "text": "Oxford, Oxfordshire"
+                            },
+                            {
+                                "value": "London",
+                                "text": "London"
+                            },
+                            {
+                                "value": "Swindon",
+                                "text": "Swindon"
+                             },
+                            {
+                                "value": "Gravesend, Kent",
+                                "text": "Gravesend, Kent"
+                            },
+                            {
+                                "value": "Northampton, Northamptonshire",
+                                "text": "Northampton, Northamptonshire"
+                            },
+                            {
+                                "value": "Rugby, Warwickshire",
+                                "text": "Rugby, Warwickshire"
+                            },
+                            {
+                                "value": "Sutton Coldfield, West Midlands",
+                                "text": "Sutton Coldfield, West Midlands"
+                            },
+                            {
+                                "value": "Harlow, Essex",
+                                "text": "Harlow, Essex"
+                            },
+                            {
+                                "value": "Aberdeen, Aberdeen City",
+                                "text": "Aberdeen, Aberdeen City"
+                            },
+                            {
+                                "value": "Swansea, Swansea",
+                                "text": "Swansea, Swansea"
+                            },
+                            {
+                                "value": "Chesterfield, Derbyshire",
+                                "text": "Chesterfield, Derbyshire"
+                            }
+                          ]} />
+
+                    <Checkbox  items={[{ "id": "checkbox01", "name": "checkboxExample", "value": "checkboxExampleValue01", "text": "Accept T&C", "checked": false}]}/>
+                    <Divider verticalSpace={{"bottom": 6, "top": 3}} />
+                    <CallToAction  href="#"  text="Order now"/>   
+
+                </Column>
+                <Column span={[6]}>
+                <Label  text="Order Status"/>
+                <TextField   name="Text field with placeholder" type="text"  value="NEW ORDER" readOnly={true} />
+                </Column>
+            </Grid>
         )
     }
 }

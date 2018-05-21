@@ -4,6 +4,8 @@
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
+    "@ms-fw/fw-react": "^1.25.517-beta.0",
+    "office-ui-fabric-react": "^5.79.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14",
